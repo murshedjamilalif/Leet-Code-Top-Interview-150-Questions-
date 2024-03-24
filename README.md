@@ -1,14 +1,10 @@
-# Leet-Code-Top-Interview-150-Questions-
-Top Interview 150 Questions Leet Code
-Here's the complete HTML code with the provided list formatted for your GitHub README file:
 
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Algorithm List</title>
+<title>Top Interview 150 Questions Leet Code</title>
 </head>
 <body>
 
