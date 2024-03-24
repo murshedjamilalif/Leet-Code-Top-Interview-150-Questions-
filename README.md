@@ -4,11 +4,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Top Interview 150 Questions Leet Code</title>
+<title></title>
 </head>
 <body>
 
-<h1>Algorithm List</h1>
+<h1>Top Interview 150 Questions Leet Code</h1>
 
 <h2>Array / String</h2>
 <ul>
