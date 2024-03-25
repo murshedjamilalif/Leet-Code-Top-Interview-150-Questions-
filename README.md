@@ -25,6 +25,14 @@
             p -= 1
         
         # If there are still elements left in nums1, they are already in the correct place
+nums1 = [1,2,3,0,0,0]
+m = 3
+nums2 = [2,5,6]
+n = 3
+solution = Solution()
+solution.merge(nums1, m, nums2, n)
+
+print(f"Modified list: {nums1}")
 
   ```
   <li><b>Remove Element</b></li>
