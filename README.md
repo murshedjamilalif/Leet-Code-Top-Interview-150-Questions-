@@ -3,7 +3,30 @@
 
 <h2>Array / String</h2>
 <ul>
-  <li>Merge Sorted Array</li>
+  <li><b>Merge Sorted Array</b></li>
+  
+  ```python
+  class Solution:
+    def merge(self, nums1, m, nums2, n):
+        """
+        Do not return anything, modify nums1 in-place instead.
+        """
+        p = m + n - 1
+        i = m - 1
+        j = n - 1
+        
+        while j >= 0:
+            if i >= 0 and nums1[i] > nums2[j]:
+                nums1[p] = nums1[i]
+                i -= 1
+            else:
+                nums1[p] = nums2[j]
+                j -= 1
+            p -= 1
+        
+        # If there are still elements left in nums1, they are already in the correct place
+
+  ```
   <li><b>Remove Element</b></li>
 
 ```python
