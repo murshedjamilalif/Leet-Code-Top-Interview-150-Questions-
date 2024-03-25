@@ -57,7 +57,32 @@ print(f"Modified list: {nums}")  # Output: Modified list: [2, 2, _, _]
 print(f"New length: {new_length}")  # Output: New length: 2
 ```
 
-  <li>Remove Duplicates from Sorted Array</li>
+  <li><b>Remove Duplicates from Sorted Array</b></li>
+  
+  ```python
+  class Solution:
+    def removeDuplicates(self, nums) -> int:
+        if not nums:
+            return 0
+        
+        i = 0
+        for j in range(1, len(nums)):
+            if nums[j] != nums[i]:
+                i += 1
+                nums[i] = nums[j]
+        
+        return i + 1
+nums = [1,1,2]
+solution = Solution()
+k = solution.removeDuplicates(nums)
+print(f"Number of unique elements: {k}, nums = {nums[:k]}")
+
+nums = [0,0,1,1,1,2,2,3,3,4]
+k = solution.removeDuplicates(nums)
+print(f"Number of unique elements: {k}, nums = {nums[:k]}")
+
+
+  ```
   <li>Remove Duplicates from Sorted Array II</li>
   <li>Majority Element</li>
   <li>Rotate Array</li>
