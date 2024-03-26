@@ -423,7 +423,72 @@ print(solution.threeSum([0,0,0])) # Output: [[0,0,0]]
 <h2>Linked List</h2>
 <ul>
   <li>Linked List Cycle</li>
-  <li>Add Two Numbers</li>
+  <li><b>Add Two Numbers</b></li>
+  
+  ```python
+  class ListNode:
+    def __init__(self, val=0, next=None):
+        self.val = val
+        self.next = next
+
+class Solution:
+    def addTwoNumbers(self, l1: Optional[ListNode], l2: Optional[ListNode]) -> Optional[ListNode]:
+        # Initialize a dummy head node for the result list
+        dummy_head = ListNode(0)
+        # Initialize two pointers for the two input lists
+        p1, p2 = l1, l2
+        # Initialize a pointer for the result list
+        p = dummy_head
+        # Initialize a carry
+        carry = 0
+        
+        # Iterate through the lists
+        while p1 or p2:
+            # Calculate the sum of the current digits and the carry
+            sum = carry
+            if p1:
+                sum += p1.val
+                p1 = p1.next
+            if p2:
+                sum += p2.val
+                p2 = p2.next
+            
+            # Update the carry
+            carry = sum // 10
+            # Create a new node for the current digit
+            p.next = ListNode(sum % 10)
+            # Move the pointer for the result list
+            p = p.next
+        
+        # If there's still a carry, add a new node with the value of the carry
+        if carry > 0:
+            p.next = ListNode(carry)
+        
+        # Return the result list, excluding the dummy head
+        return dummy_head.next
+solution = Solution()
+
+# Example 1
+l1 = ListNode(2, ListNode(4, ListNode(3)))
+l2 = ListNode(5, ListNode(6, ListNode(4)))
+result = solution.addTwoNumbers(l1, l2)
+print(result.val, result.next.val, result.next.next.val) # Output: 7 0 8
+
+# Example 2
+l1 = ListNode(0)
+l2 = ListNode(0)
+result = solution.addTwoNumbers(l1, l2)
+print(result.val) # Output: 0
+
+# Example 3
+l1 = ListNode(9, ListNode(9, ListNode(9, ListNode(9, ListNode(9, ListNode(9, ListNode(9)))))))
+l2 = ListNode(9, ListNode(9, ListNode(9, ListNode(9))))
+result = solution.addTwoNumbers(l1, l2)
+print(result.val, result.next.val, result.next.next.val, result.next.next.next.val, result.next.next.next.next.val, result.next.next.next.next.next.val, result.next.next.next.next.next.next.val, result.next.next.next.next.next.next.next.val) # Output: 8 9 9 9 0 0 0 1
+
+        
+  ```
+  
   <li>Merge Two Sorted Lists</li>
   <li>Copy List with Random Pointer</li>
   <li>Reverse Linked List II</li>
