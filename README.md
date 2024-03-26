@@ -212,7 +212,35 @@ class Solution:
 ```
 
 
-  <li>Is Subsequence</li>
+  <li><b>Is Subsequence</b></li>
+  
+  ```python
+  class Solution:
+    def isSubsequence(self, s: str, t: str) -> bool:
+        # Initialize two pointers at the beginning of s and t
+        s_pointer = 0
+        t_pointer = 0
+        
+        # Iterate through t
+        while t_pointer < len(t):
+            # If the current character in s matches the current character in t, move the pointer in s forward
+            if s_pointer < len(s) and s[s_pointer] == t[t_pointer]:
+                s_pointer += 1
+            # Move the pointer in t forward regardless of whether the characters match
+            t_pointer += 1
+        
+        # If we've gone through all characters in s, it's a subsequence of t
+        return s_pointer == len(s)
+solution = Solution()
+
+# Example 1
+print(solution.isSubsequence("abc", "ahbgdc")) # Output: True
+
+# Example 2
+print(solution.isSubsequence("axc", "ahbgdc")) # Output: False
+
+
+  ```
   <li>Two Sum II - Input Array Is Sorted</li>
   <li>Container With Most Water</li>
   <li>3Sum</li>
