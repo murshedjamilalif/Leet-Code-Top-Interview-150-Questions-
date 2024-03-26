@@ -241,8 +241,81 @@ print(solution.isSubsequence("axc", "ahbgdc")) # Output: False
 
 
   ```
-  <li>Two Sum II - Input Array Is Sorted</li>
-  <li>Container With Most Water</li>
+  <li><b>Two Sum II - Input Array Is Sorted</b></li>
+  
+  ```python
+  class Solution:
+    def twoSum(self, numbers: List[int], target: int) -> List[int]:
+        # Initialize two pointers at the beginning and end of the array
+        left, right = 0, len(numbers) - 1
+        
+        # Loop until the left pointer is less than the right pointer
+        while left < right:
+            # Calculate the sum of the numbers at the current positions of the pointers
+            current_sum = numbers[left] + numbers[right]
+            
+            # If the sum is equal to the target, return the indices of the two numbers
+            if current_sum == target:
+                return [left + 1, right + 1] # Adding 1 to the indices as per the problem statement
+            # If the sum is less than the target, move the left pointer one step to the right
+            elif current_sum < target:
+                left += 1
+            # If the sum is greater than the target, move the right pointer one step to the left
+            else:
+                right -= 1
+
+solution = Solution()
+
+# Example 1
+print(solution.twoSum([2,7,11,15], 9)) # Output: [1,2]
+
+# Example 2
+print(solution.twoSum([2,3,4], 6)) # Output: [1,3]
+
+# Example 3
+print(solution.twoSum([-1,0], -1)) # Output: [1,2]
+
+        
+  ```
+  
+  <li><b>Container With Most Water</b></li>
+  
+  ```python
+  class Solution:
+    def maxArea(self, height: List[int]) -> int:
+        # Initialize two pointers at the beginning and end of the array
+        left, right = 0, len(height) - 1
+        # Initialize the maximum area to 0
+        max_area = 0
+        
+        # Loop until the left pointer is less than the right pointer
+        while left < right:
+            # Calculate the area of the container formed by the two lines at the current positions of the pointers
+            current_area = min(height[left], height[right]) * (right - left)
+            # Update the maximum area if the current area is greater
+            max_area = max(max_area, current_area)
+            
+            # If the height of the line at the left pointer is less than the height of the line at the right pointer,
+            # move the left pointer one step to the right
+            if height[left] < height[right]:
+                left += 1
+            # If the height of the line at the right pointer is less than or equal to the height of the line at the left pointer,
+            # move the right pointer one step to the left
+            else:
+                right -= 1
+        
+        # Return the maximum area
+        return max_area
+solution = Solution()
+
+# Example 1
+print(solution.maxArea([1,8,6,2,5,4,8,3,7])) # Output: 49
+
+# Example 2
+print(solution.maxArea([1,1])) # Output: 1
+
+        
+  ```
   <li>3Sum</li>
 </ul>
 
