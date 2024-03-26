@@ -316,7 +316,61 @@ print(solution.maxArea([1,1])) # Output: 1
 
         
   ```
-  <li>3Sum</li>
+  <li><b>3Sum</b></li>
+  
+  ```python
+class Solution:
+    def threeSum(self, nums: List[int]) -> List[List[int]]:
+        # Sort the input array
+        nums.sort()
+        # Initialize the result list
+        result = []
+        
+        # Iterate through the array
+        for i in range(len(nums) - 2):
+            # Skip duplicates
+            if i > 0 and nums[i] == nums[i - 1]:
+                continue
+            
+            # Initialize two pointers for the two-sum problem
+            left, right = i + 1, len(nums) - 1
+            
+            # While the left pointer is less than the right pointer
+            while left < right:
+                # Calculate the sum of the current number and the numbers at the left and right pointers
+                current_sum = nums[i] + nums[left] + nums[right]
+                
+                # If the sum is 0, add the triplet to the result
+                if current_sum == 0:
+                    result.append([nums[i], nums[left], nums[right]])
+                    # Skip duplicates
+                    while left < right and nums[left] == nums[left + 1]:
+                        left += 1
+                    while left < right and nums[right] == nums[right - 1]:
+                        right -= 1
+                    left += 1
+                    right -= 1
+                # If the sum is less than 0, move the left pointer to the right
+                elif current_sum < 0:
+                    left += 1
+                # If the sum is greater than 0, move the right pointer to the left
+                else:
+                    right -= 1
+        
+        # Return the result
+        return result
+solution = Solution()
+
+# Example 1
+print(solution.threeSum([-1,0,1,2,-1,-4])) # Output: [[-1,-1,2],[-1,0,1]]
+
+# Example 2
+print(solution.threeSum([0,1,1])) # Output: []
+
+# Example 3
+print(solution.threeSum([0,0,0])) # Output: [[0,0,0]]
+
+  ```
 </ul>
 
 <h2>Sliding Window</h2>
