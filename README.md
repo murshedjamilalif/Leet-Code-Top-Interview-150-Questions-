@@ -134,7 +134,84 @@ print(f"Number of unique elements or their second occurrence: {k}, nums = {nums[
 
 <h2>Two Pointers</h2>
 <ul>
-  <li>Valid Palindrome</li>
+  <li><b>Valid Palindrome</b></li>
+  <li><b>Approach 1</b></li>
+  
+  ```python
+  class Solution:
+  
+  def isPalindrome(self, s: str) -> bool:
+    left, right = 0, len(s) - 1
+
+    # Iterate while left pointer is less than right pointer
+    while left < right:
+      # Skip non-alphanumeric characters from both sides simultaneously
+      while left < right and not (s[left].isalnum()):
+        left += 1
+      while left < right and not (s[right].isalnum()):
+        right -= 1
+
+      # Check if characters at left and right are equal (case-insensitive)
+      if left < right:  # Check if pointers haven't crossed yet
+        if s[left].lower() != s[right].lower():
+          return False
+        left += 1
+        right -= 1
+
+    return True
+
+  ```
+<li><b>Approach 2</b></li>
+
+```python
+class Solution:
+  """
+  This class provides a method to check if a string is a palindrome.
+  """
+  def isPalindrome(self, s: str) -> bool:
+    """
+    Checks if a string is a palindrome using two pointers and manual character checks.
+
+    Args:
+        s: The string to check.
+
+    Returns:
+        True if the string is a palindrome, False otherwise.
+    """
+    left, right = 0, len(s) - 1
+
+    # Iterate while left pointer is less than or equal to right pointer
+    while left <= right:
+      # Skip non-alphanumeric characters from the left
+      while left < len(s) and not ((ord('a') <= ord(s[left]) <= ord('z')) or (ord('A') <= ord(s[left]) <= ord('Z')) or (ord('0') <= ord(s[left]) <= ord('9'))):
+        left += 1
+      # Skip non-alphanumeric characters from the right
+      while right >= 0 and not ((ord('a') <= ord(s[right]) <= ord('z')) or (ord('A') <= ord(s[right]) <= ord('Z')) or (ord('0') <= ord(s[right]) <= ord('9'))):
+        right -= 1
+
+      # Check if characters at left and right are equal (case-insensitive)
+      if left <= right:
+        # Manual conversion to lowercase for comparison (ASCII)
+        if ord('A') <= ord(s[left]) <= ord('Z'):
+          leftChar = chr(ord(s[left]) + 32)  # Convert to lowercase (ASCII)
+        else:
+          leftChar = s[left]
+        if ord('A') <= ord(s[right]) <= ord('Z'):
+          rightChar = chr(ord(s[right]) + 32)  # Convert to lowercase (ASCII)
+        else:
+          rightChar = s[right]
+        if leftChar != rightChar:
+          return False
+
+      # Move pointers inwards
+      left += 1
+      right -= 1
+
+    return True
+
+```
+
+
   <li>Is Subsequence</li>
   <li>Two Sum II - Input Array Is Sorted</li>
   <li>Container With Most Water</li>
