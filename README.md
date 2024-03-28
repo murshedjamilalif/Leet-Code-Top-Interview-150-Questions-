@@ -111,6 +111,63 @@ print(f"Number of unique elements or their second occurrence: {k}, nums = {nums[
 
   ```
   <li>Majority Element</li>
+  <li>Approach 1</li>
+  
+```python
+
+class Solution:
+    def majorityElement(self, nums):
+        n = len(nums)
+        m = {}
+        
+        for num in nums:
+            if num in m:
+                m[num] += 1
+            else:
+                m[num] = 1
+        
+        n = n // 2
+        for key, value in m.items():
+            if value > n:
+                return key
+        
+        return 0
+# Test case 1: Single element array
+nums1 = [3,2,3]
+print(Solution().majorityElement(nums1)) # Expected output: 3
+
+# Test case 2: Array with majority element
+nums2 = [2,2,1,1,1,2,2]
+print(Solution().majorityElement(nums2)) # Expected output: 2
+
+# Test case 3: Array with multiple majority elements
+nums3 = [2,2,1,1,1,2,2,3,3,3]
+print(Solution().majorityElement(nums3)) # Expected output: 2 or 3, depending on the implementation
+
+# Test case 4: Array with no majority element
+nums4 = [1,2,3,4,5]
+print(Solution().majorityElement(nums4)) # Expected output: 0, as per the implementation
+```        
+
+<li>Approach 2</li>
+
+```python
+class Solution:
+    def majorityElement(self, nums):
+        count = 0
+        candidate = 0
+        
+        for num in nums:
+            if count == 0:
+                candidate = num
+            
+            if num == candidate:
+                count += 1
+            else:
+                count -= 1
+        
+        return candidate  
+  ```
   <li><b>Rotate Array</b></li>
   
   ```python
