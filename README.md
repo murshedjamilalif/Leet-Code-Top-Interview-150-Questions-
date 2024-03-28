@@ -140,13 +140,6 @@ print(Solution().majorityElement(nums1)) # Expected output: 3
 nums2 = [2,2,1,1,1,2,2]
 print(Solution().majorityElement(nums2)) # Expected output: 2
 
-# Test case 3: Array with multiple majority elements
-nums3 = [2,2,1,1,1,2,2,3,3,3]
-print(Solution().majorityElement(nums3)) # Expected output: 2 or 3, depending on the implementation
-
-# Test case 4: Array with no majority element
-nums4 = [1,2,3,4,5]
-print(Solution().majorityElement(nums4)) # Expected output: 0, as per the implementation
 ```        
 
 <li>Approach 2</li>
