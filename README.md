@@ -782,6 +782,11 @@ class Solution:
         <img src="https://img.shields.io/badge/-murshedjamilalif@gmail.com-c14438?style=flat-square&logo=Gmail&logoColor=white&link=mailto:murshedjamilalif@gmail.com" alt="Gmail Badge">
   </a>
 </div>
+<p>
+  <img align="left" src="https://github-readme-stats.vercel.app/api/top-langs?username=murshedjamilalif&show_icons=true&locale=en&layout=compact" alt="murshedjamilalif" />
+</p>
+
+
 
 
 </body>
